@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyen tien</title>
+    <style>
+        td{
+            width: 5%;
+        }
+        select{
+            width: 40%;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <table>
+        <tr>
+            <td>amount</td>
+            <td></td>
+            <td>from currency</td>
+            <td></td>
+            <td>to currency</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" id="ve1">
+            </td>
+            <td></td>
+            <td>
+                <select name="from" id="nhap">
+                    <option value="vn">VietNam</option>
+                    <option value="usd">my</option>
+                </select>
+            </td>
+            <td></td>
+            <td>
+                <select name="to" id="xuat">
+                    <option value="usd">My</option>
+                    <option value="vn">VietNam</option>
+                </select>
+            </td>
+            <td>
+                <button type="button" value="convert" onclick="chuyen()">convert</button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function chuyen() {
+            let a = document.getElementById("ve1").value
+            let b = document.getElementById("nhap").value
+            let c = document.getElementById("xuat").value
+            if (b==c){
+                document.getElementById("result").innerHTML +=a*1;
+            }
+            if (b== "vn" && c=="usd"){
+                document.getElementById("result").innerHTML += a/20000;
+            }
+            if (b== "usd" && c=="vn"){
+                document.getElementById("result").innerHTML += a*20000;
+            }
+        }
+
+    </script>
+    <p id="result">result :</p>
+</form>
+</body>
+</html>
